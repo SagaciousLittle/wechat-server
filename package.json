@@ -3,7 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "keywords": [],
+  "keywords": [
+    "wechat",
+    "typescript",
+    "微信",
+    "服务号",
+    "公众号",
+    "个人",
+    "demo"
+  ],
   "author": "王多戏",
   "license": "ISC",
   "scripts": {
@@ -14,14 +22,19 @@
   "dependencies": {
     "@types/bluebird": "^3.5.27",
     "@types/body-parser": "^1.17.0",
+    "@types/continuation-local-storage": "^3.2.1",
     "@types/express": "^4.17.0",
+    "@types/express-xml-bodyparser": "^0.3.1",
     "@types/node": "^12.0.7",
     "@types/validator": "^10.11.1",
     "axios": "^0.19.0",
     "body-parser": "^1.17.0",
+    "continuation-local-storage": "^3.2.1",
     "express": "^4.17.0",
+    "express-xml-bodyparser": "^0.3.0",
     "mysql2": "^1.6.5",
-    "sequelize": "^5.8.8"
+    "sequelize": "^5.8.8",
+    "xmlbuilder": "^13.0.2"
   },
   "devDependencies": {
     "@types/dotenv": "^6.1.1",

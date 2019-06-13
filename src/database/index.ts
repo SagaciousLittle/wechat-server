@@ -1,6 +1,10 @@
 import {
   Sequelize,
 } from 'sequelize'
+import cls from 'continuation-local-storage'
+
+// 创建namesapce, 用于事务对象的存储
+Sequelize.useCLS(cls.createNamespace('my-very-own-namespace'))
 
 const {env} = process
 

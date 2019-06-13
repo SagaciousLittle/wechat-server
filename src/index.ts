@@ -2,8 +2,10 @@ import express, {
   ErrorRequestHandler,
 } from 'express'
 import bodyParser from 'body-parser'
+import xmlParser from 'express-xml-bodyparser'
 import dotenv from 'dotenv'
 import yargs from 'yargs'
+import localStorage from './database/local'
 import {
   PORT,
 } from './config'
@@ -20,6 +22,17 @@ async function main () {
   app.use(bodyParser.urlencoded({
     extended: true
   }))
+
+  // 解析xml
+  app.use(xmlParser())
+  app.use(async (req, res, next) => {
+    const {xml} = req.body
+    if (typeof xml !== 'object' || typeof xml === null) return next()
+    Object.entries(xml).forEach(([k, v]) => {
+      if (v instanceof Array && v.length === 1) xml[k] = v[0]
+    })
+    next()
+  })
 
   // 引入router
   const {
