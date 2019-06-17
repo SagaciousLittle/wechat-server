@@ -683,6 +683,16 @@ end-of-stream@^1.1.0:
   dependencies:
     once "^1.4.0"
 
+env-configurator@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/env-configurator/-/env-configurator-1.1.0.tgz#2c7edd8d8a425275777ae80f0064080a60ea6ec1"
+  integrity sha512-d9SLKeuJIeoVSvFfbfLm8ng7/Z2i8diIJOKcfxkggk0zRoPomHdvP9hZmvCYSITUmdHdeYdAgcKwtlgUXs8egA==
+  dependencies:
+    "@types/dotenv" "^6.1.1"
+    "@types/yargs" "^13.0.0"
+    dotenv "^8.0.0"
+    yargs "^13.2.4"
+
 escape-html@~1.0.3:
   version "1.0.3"
   resolved "https://registry.npm.taobao.org/escape-html/download/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"

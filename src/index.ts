@@ -3,19 +3,20 @@ import express, {
 } from 'express'
 import bodyParser from 'body-parser'
 import xmlParser from 'express-xml-bodyparser'
-import dotenv from 'dotenv'
-import yargs from 'yargs'
-import localStorage from './database/local'
+import {
+  load,
+} from 'env-configurator'
 import {
   PORT,
 } from './config'
 
 async function main () {
   // 设置全局变量
-  const path = yargs.argv.envPath as string || '/etc/wechat.env'
-  dotenv.config({path})
+  load('/etc/wechat.env')
 
   const app = express()
+
+  const task = import('./task')
 
   // 解析body
   app.use(bodyParser.json())
