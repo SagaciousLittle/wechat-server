@@ -6,18 +6,17 @@ import cls from 'continuation-local-storage'
 // 创建namesapce, 用于事务对象的存储
 Sequelize.useCLS(cls.createNamespace('my-very-own-namespace'))
 
-const {env} = process
+function getValFromEnv (key: string) {
+  const v = process.env[key]
+  if (!v) throw new Error(`the key: ${key} is not found in process.nev, you should config in env file`)
+  return v
+}
 
-const username = env['DATABASE_USERNAME']
-const password = env['DATABASE_PASSWORD']
-
-if (!username || !password) throw new Error('please set username and password in .env file')
-
-export const sequelize = new Sequelize('blog', username, password, {
+export const sequelize = new Sequelize('blog', getValFromEnv('DATABASE_USERNAME'), getValFromEnv('DATABASE_PASSWORD'), {
+  port: +getValFromEnv('DATABASE_PORT'),
+  host: getValFromEnv('DATABASE_HOST'),
   dialect: 'mysql',
   ssl: true,
-  host: env['DATABASE_HOST'],
-  port: Number(env['DATABASE_PORT']),
   pool: {
     max: 30
   }
