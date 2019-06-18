@@ -15,6 +15,6 @@ wechatRouter.get('/getToken', async (req, res) => {
 })
 
 // 刷新wechat token
-wechatRouter.get('/reflushToken', async (req, res, next) => {
+wechatRouter.get('/reflushToken', async (req, res) => {
   res.send(Res(await reflushWechatToken()))
 })
